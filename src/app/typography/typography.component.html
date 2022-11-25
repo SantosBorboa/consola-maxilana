@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">store</i>
+                </div>
+                <p class="card-category">Total de ventas</p>
+                <h3 class="card-title">{{Ventas}}
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+                <p class="card-category">Buscar por upc</p>
+                    <input type="text" id="upc" class="form-control">
+            </div>
+        </div>
+    </div>
+    
+</div>
+<button mat-raised-button (click)="onSubmit();" class="btn btn-success pull-right">Buscar</button>
+<button mat-raised-button (click)="cargarVtas();" class="btn btn-primary pull-right">Reiniciar busqueda</button>
+<div class="clearfix"></div>
+
+  <div class="container-fluid">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Ventas Maxilana</h4>
+        </div>
+        <div class="card-body">
+            <div id="typography">
+                <form>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="profile">
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>Upc</th>
+                                    <th>Recibo</th>
+                                    <th>Referencia</th>
+                                    <th>Número de control</th>
+                                    <th>Autorización</th>
+                                    <th>Sucursal</th>
+                                    <th>Correo electrónico</th>
+                                    <th>Monto</th>
+                                    <th>Fecha</th>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of items" (click)="Detallepago(item)">
+                                    <th>{{ item.Upc }}</th>
+                                    <th>{{ item.Recibo }}</th>
+                                    <th>{{ item.Ref }}</th>
+                                    <th>{{ item.Numcon }}</th>
+                                    <th>{{ item.Auth }}</th>
+                                    <th>{{ item.Sucursal }}</th>
+                                    <th>{{ item.Correo }}</th>
+                                    <th>{{ item.Monto }}</th>
+                                    <th>{{ item.Fecha }}</th>
+                                 </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                      </div>
+                  </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
