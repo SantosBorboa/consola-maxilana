@@ -1,0 +1,185 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Buscar artículos</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <mat-form-field class="example-full-width">
+                              <input #texto id="texto" matInput placeholder="Nombre artículo">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" id="cln" type="checkbox" value="">
+                                <span class="form-check-sign">
+                                    <span class="check"></span>
+                                </span>Culiacán
+                            </label>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                              <input class="form-check-input" id="gdl" type="checkbox" value="">
+                              <span class="form-check-sign">
+                                  <span class="check"></span>
+                              </span>Guadalajara
+                          </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" id="tj" type="checkbox" value="" >
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>Tijuana
+                        </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                          <input class="form-check-input" id="hmo" type="checkbox" value="">
+                          <span class="form-check-sign">
+                              <span class="check"></span>
+                          </span>Hermosillo
+                      </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" id="mzt" type="checkbox" value="">
+                        <span class="form-check-sign">
+                            <span class="check"></span>
+                        </span>Mazatlán
+                    </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-check">
+                  <label class="form-check-label">
+                      <input class="form-check-input" id="mxl" type="checkbox" value="">
+                      <span class="form-check-sign">
+                          <span class="check"></span>
+                      </span>Mexicali
+                  </label>
+              </div>
+            </div>
+                    </div>
+                    <div class="">
+                      <label class="">Tipo</label>
+                      <hr>
+                      <div class="row">
+                      <div class="col-md-2">
+                        <div class="mdc-form-field">
+                          <label class="form-check-label">
+                              <input class="mdc-radio__native-control" (change)="change(1)" type="radio" id="Varios" value="">
+                              <span class="form-check-sign">
+                              </span> Varios
+                          </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="mdc-form-field">
+                        <label class="form-check-label">
+                            <input class="mdc-radio__native-control" (change)="change(2)" type="radio" id="Joyeria"   value="">
+                            <span class="form-check-sign">
+                            </span>  Joyería
+                        </label>
+                    </div>
+                  </div>
+                </div>
+                    </div>
+                    <div class="">
+                      <br>
+                      <label class="">Precios</label>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-1">
+                          <mat-form-field class="example-full-width">
+                              <input matInput id="pricemin" placeholder="Mínimo">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-1">
+                            <mat-form-field class="example-full-width">
+                              <input matInput id="pricemax" placeholder="Máximo">
+                            </mat-form-field>
+                        </div>
+                </div>
+                    </div>
+                    <button mat-raised-button type="submit" (click)="onSubmit();" class="btn btn-danger pull-right">Buscar</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        </div>
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Artículos encontrados:</h4>
+                  </div>
+                  <div class="card-body">
+                      <form>
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="text-warning">
+                                        <th>Upc</th>
+                                        <th>Artículo</th>
+                                        <th>Sucursal</th>
+                                        <th>Marca</th>
+                                        <th>Precio</th>
+                                        <th>Precio neto</th>
+                                        <th>Observación</th>
+                                        <th>Gramos</th>
+                                        <th>Kilataje</th>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let item of items" (click)="getData(item)">
+                                        <th>{{ item.Upc }}</th>
+                                        <th>{{ item.Nombre }}</th>
+                                        <th>{{ item.Sucursal }}</th>
+                                        <th>{{ item.Marca }}</th>
+                                        <th>{{ item.Precio }}</th>
+                                        <th>{{ item.PrecioNeto }}</th>
+                                        <th>{{ item.Observaciones }}</th>
+                                        <th>{{ item.Nombre }}</th>
+                                        <th>{{ item.Nombre }}</th>
+                                     </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                      </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-profile">
+                      <a href="javascript:void(0)">
+                          <img class="img" style="height:100%;width:100%;" height="100" src="{{imgArticulo}}" />
+                      </a>
+        
+                  <div class="card-body">
+                      <h6 class="card-category text-gray">{{DesArticulo}}</h6>
+                      <h4 class="card-title">{{Sucursal}}</h4>
+                      <p class="card-description">
+                        {{PrecioNeto}}
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

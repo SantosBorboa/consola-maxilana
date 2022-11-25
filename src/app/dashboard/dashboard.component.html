@@ -1,0 +1,107 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Total de artículos</p>
+                      <h3 class="card-title">{{remates}}
+                      </h3>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Venta en línea</p>
+                      <h3 class="card-title">{{vtalinea}}</h3>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Catálogo</p>
+                      <h3 class="card-title">{{catalogo}}</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">Ventas recientes</h4>
+                </div>
+                  <div class="card-body">
+                      <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                    
+                                <table class="table table-hover">
+                                    <thead class="text-warning">
+                                        <th>Fecha</th>
+                                        <th>Referencia</th>
+                                        <th>Upc</th>
+                                        <th>Sucursal</th>
+                                        <th>Total</th>
+                                        <th>Respuesta</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of itemsvtas">
+                                            <th>{{item.cust_req_date}}</th>
+                                            <th>{{ item.reference }}</th>
+                                            <th>{{ item.upc }}</th>
+                                            <th>{{ item.codigosucursal }}</th>
+                                            <th>{{ item.monto }}</th>
+                                            <th>{{ item.text }}</th>
+                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">Refrendos recientes</h4>
+                </div>
+                  <div class="card-body table-responsive">
+                    
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>Fecha</th>
+                            <th>Referencia</th>
+                            <th>Boleta</th>
+                            <th>Sucursal</th>
+                            <th>Total</th>
+                            <th>Respuesta</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of itemsboletas">
+                                <th>{{item.cust_req_date}}</th>
+                                <th>{{ item.reference }}</th>
+                                <th>{{ item.boleta }}</th>
+                                <th>{{ item.codigosucursal }}</th>
+                                <th>{{ item.monto }}</th>
+                                <th>{{ item.text }}</th>
+                             </tr>
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
