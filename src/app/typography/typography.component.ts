@@ -15,6 +15,7 @@ export class TypographyComponent implements OnInit {
   public DataArticulos : any =[];
   public items : any=[];
   public Ventas : any = 0;
+  public KeyedCollection: any[] = [];
   constructor(private _vtas : VentasService) { }
 
   ngOnInit() {
@@ -46,6 +47,9 @@ export class TypographyComponent implements OnInit {
       this.Ventas = this.DataArticulos.length;
 
       this.blockUI.stop();
+    })
+    .catch(err => {
+      Swal.fire('Error', err.message, 'error');
     });
   }
   Detallepago(info){
