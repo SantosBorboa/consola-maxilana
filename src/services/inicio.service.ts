@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class InicioService {
+export class InicioService { 
   baseApiUrl: string = 'https://consola.maxilana.com/api'
   public header : any;
   constructor(private http : HttpClient) {
