@@ -1,150 +1,160 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <button mat-raised-button type="submit" (click)="onSubmitIntentos();"  style="display:none" class="btn btn-warning pull-right">Buscar intentos de pago</button>
-            <div class="clearfix"></div>
-            <div class="card">
-              <div class="card-header card-header-danger">
-                  <h4 class="card-title">Información de pagos en línea</h4>
-              </div>
-              <div class="card-body">
-                  <form>
-                    <div class="">
-                        <label class="">Tipo de pago</label>
-                        <div class="row">
-                        <div class="col-md-2">
-                          <div class="mdc-form-field">
-                            <label class="form-check-label">
-                                <input class="mdc-radio__native-control" (change)="change(1)" type="radio" id="Empenov" value="">
-                                <span class="form-check-sign">
-                                </span> Empeño
-                            </label>
-                        </div>
-                      </div>
-                      <div class="col-md-2">
-                        <div class="mdc-form-field"  style="display:none">
-                          <label class="form-check-label">
-                              <input class="mdc-radio__native-control" (change)="change(2)" type="radio" id="Pyvales"   value="">
-                              <span class="form-check-sign">
-                              </span>  Prestamo y vales
-                          </label>
-                      </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <button mat-raised-button type="submit" (click)="onSubmitIntentos();" style="display:none"
+          class="btn btn-warning pull-right">Buscar intentos de pago</button>
+        <div class="clearfix"></div>
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Información de pagos en línea</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="">
+                <label class="">Tipo de pago</label>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="mdc-form-field">
+                      <label class="form-check-label">
+                        <input class="mdc-radio__native-control" (change)="change(1)" type="radio" id="Empenov"
+                          value="">
+                        <span class="form-check-sign">
+                        </span> Empeño
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="mdc-form-field" style="display:none">
+                      <label class="form-check-label">
+                        <input class="mdc-radio__native-control" (change)="change(2)" type="radio" id="Pyvales"
+                          value="">
+                        <span class="form-check-sign">
+                        </span> Prestamo y vales
+                      </label>
                     </div>
                   </div>
                 </div>
-                      <div class="row" id="empeno" style="display: none">
-                          <div class="col-sm-2">
-                            <mat-form-field class="example-full-width">
-                                <input #texto id="Bol" matInput placeholder="Boleta"  (change)="IngresoDatos(1)">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-sm-2">
-                            <mat-form-field class="example-full-width">
-                                <input #texto id="Auth" matInput placeholder="Código de autorización"  (change)="IngresoDatos(2)">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-sm-2">
-                            <mat-form-field class="example-full-width">
-                                <input #texto id="Ref" matInput placeholder="Referencia"  (change)="IngresoDatos(3)">
-                              </mat-form-field>
-                        </div>
-                      </div>
-                      <!--VALES Y PRESTAMOS-->
-                      <div class="row" id="ppyvales" style="display: none">
-                        <div class="col-sm-2">
-                            <mat-form-field class="example-full-width">
-                                <input #texto id="Ref" matInput placeholder="Id de pago">
-                              </mat-form-field>
-                        </div>
-                        <div class="col-sm-2">
-                          <mat-form-field class="example-full-width">
-                              <input #texto id="Bol" matInput placeholder="Código sucursal">
-                            </mat-form-field>
-                      </div>
-                      <div class="col-sm-2">
-                          <mat-form-field class="example-full-width">
-                              <input #texto id="Auth" matInput placeholder="Código de prestamo">
-                            </mat-form-field>
-                      </div>
-
-                    </div>
-                      <button mat-raised-button (click)="onSubmit();" class="btn btn-success pull-right">Buscar pagos aplicados</button>
-                      <div class="clearfix"></div>
-                  </form>
               </div>
-          </div>
-          </div>
-            <div class="col-md-12">
+              <div class="row" id="empeno" style="display: none">
+                <div class="col-sm-2">
+                  <mat-form-field class="example-full-width">
+                    <input #texto id="Bol" matInput placeholder="Boleta" (change)="IngresoDatos(1)">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                  <mat-form-field class="example-full-width">
+                    <input #texto id="Auth" matInput placeholder="Código de autorización" (change)="IngresoDatos(2)">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                  <mat-form-field class="example-full-width">
+                    <input #texto id="Ref" matInput placeholder="Referencia" (change)="IngresoDatos(3)">
+                  </mat-form-field>
+                </div>
+              </div>
+              <!--VALES Y PRESTAMOS-->
+              <div class="row" id="ppyvales" style="display: none">
+                <div class="col-sm-2">
+                  <mat-form-field class="example-full-width">
+                    <input #texto id="Ref" matInput placeholder="Id de pago">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                  <mat-form-field class="example-full-width">
+                    <input #texto id="Bol" matInput placeholder="Código sucursal">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                  <mat-form-field class="example-full-width">
+                    <input #texto id="Auth" matInput placeholder="Código de prestamo">
+                  </mat-form-field>
+                </div>
 
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Información del pago:</h4>
-                    </div>
-                    <div class="card-body">
-                        <form id="tableEmpeno" style="display: none">
-                          <div class="tab-content">
-                            <div class="tab-pane active" id="profile">
-                              <div class="card-body table-responsive">
-                                  <table class="table table-hover">
-                                      <thead class="text-warning">
-                                        <th>Id</th>  
-                                        <th>Boleta</th>  
-                                          <th>Monto</th>
-                                          <th>Referencia</th>
-                                          <th>Autorización</th>
-                                          <th>Fecha</th>
-                                          <th>Sucursal</th>
-                                          <th>Resultado</th>
-                                          <th>Recibo</th>
-                                          <th>Correo electrónico</th>
-                                          <th>Tipo de pago</th>
-                                          <th>Días pagados</th>
-                                          <th>Canal de pago</th>
-                                      </thead>
-                                      <tbody>
-                                        <tr *ngFor="let item of items">
-                                            <th>{{ item.id }}</th>
-                                            <th>{{ item.Boleta }}</th>
-                                          <th>{{ item.Monto }}</th>
-                                          <th>{{ item.Referencia }}</th>
-                                          <th>{{ item.Control }}</th>
-                                          <th>{{ item.Fecha }}</th>
-                                          <th>{{ item.Sucursal }}</th>
-                                          <th>{{ item.Resultado }}</th>
-                                          <th>{{ item.Recibo }}</th>
-                                          <th>{{ item.Correo }}</th>
-                                          <th>{{ item.Tipopago }}</th>
-                                          <th>{{ item.Diaspagados }}</th>
-                                          <th>{{ item.Canaldepago }}</th>
-                                       </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-                            </div>
-                        </div>
-                        </form>
-                        <form id="tablePP" style="display: none">
-                            <div class="tab-content">
-                              <div class="tab-pane active" id="profile">
-                                <div class="card-body table-responsive">
-                                    <table class="table table-hover">
-                                        <thead class="text-warning">
-                                            <th>Código prestamo</th>  
-                                            <th>Código sucursal</th>
-                                            <th>Id</th>
-                                            <th>Referencia</th>
-                                            <th>Número de contról</th>
-                                            <th>Fecha</th>
-                                            <th>Sucursal</th>
-                                            <th>Resultado</th>
-                                            <th>Texto</th>
-                                            <th>Banorte 3dSecure</th>
-                                            <th>Aplicado</th>
-                                        </thead>
-                                        <tbody>
-                                          <tr *ngFor="let item of items">
-                                            <!-- <th>{{ item.Upc }}</th>
+              </div>
+              <button mat-raised-button (click)="onSubmit();" class="btn btn-success pull-right btn-round">Buscar pagos
+                aplicados</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Información del pago:</h4>
+          </div>
+          <div class="card-body p-0 text-smaller">
+            <div class="pl-3">
+              <div class="form-group">
+                <button (click)="btnPrimera()" mat-raised-button type="submit" class="btn btn-danger btn-round "><div class="ripple-container"></div>|< Primera </button>
+                <button [disabled]="!this.anterior" (click)="btnAnterior()" mat-raised-button type="submit" class="btn btn-success btn-round "><div class="ripple-container"></div><< Anterior </button>
+                  {{this.paginaActual}}/{{this.totalPaginas}}
+                <button [disabled]="!this.siguiente" (click)="btnSiguiente()" mat-raised-button type="submit" class="btn btn-success btn-round "><div class="ripple-container"></div>Siguiente >></button>
+                <button (click)="btnUltima()" mat-raised-button type="submit" class="btn btn-danger btn-round "><div class="ripple-container"></div>Última >|</button>
+              </div>
+            </div>
+
+
+            <form id="tableEmpeno" style="margin-top:-25px;">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead  class="text-warning shadow-sm">
+                    <th >Id</th>
+                    <th >Boleta</th>
+                    <th >Monto</th>
+                    <th >Referencia</th>
+                    <th >Autorización</th>
+                    <th>Fecha</th>
+                    <th >Sucursal</th>
+                    <th >Resultado</th>
+                    <th >Recibo</th>
+                    <th >Correo electrónico</th>
+                    <th >Tipo de pago</th>
+                    <th >Días pagados</th>
+                    <th >Canal de pago</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of items" (click)="showData($event)">
+                      <th>{{ item.id }}</th>
+                      <th>{{ item.Boleta }}</th>
+                      <th>{{ item.Monto }}</th>
+                      <th>{{ item.Referencia }}</th>
+                      <th>{{ item.Control }}</th>
+                      <th>{{ item.Fecha }}</th>
+                      <th>{{ item.Sucursal }}</th>
+                      <th>{{ item.Resultado }}</th>
+                      <th>{{ item.Recibo }}</th>
+                      <th>{{ item.Correo }}</th>
+                      <th>{{ item.Tipopago }}</th>
+                      <th>{{ item.Diaspagados }}</th>
+                      <th>{{ item.Canaldepago }}</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+            <form id="tablePP" style="display: none">
+              <div class="tab-content">
+                <div class="tab-pane active" id="profile">
+                  <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                      <thead class="text-warning">
+                        <th>Código prestamo</th>
+                        <th>Código sucursal</th>
+                        <th>Id</th>
+                        <th>Referencia</th>
+                        <th>Número de contról</th>
+                        <th>Fecha</th>
+                        <th>Sucursal</th>
+                        <th>Resultado</th>
+                        <th>Texto</th>
+                        <th>Banorte 3dSecure</th>
+                        <th>Aplicado</th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of items">
+                          <!-- <th>{{ item.Upc }}</th>
                                             <th>{{ item.Nombre }}</th>
                                             <th>{{ item.Sucursal }}</th>
                                             <th>{{ item.Marca }}</th>
@@ -153,16 +163,25 @@
                                             <th>{{ item.Observaciones }}</th>
                                             <th>{{ item.Nombre }}</th>
                                             <th>{{ item.Nombre }}</th> -->
-                                         </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                              </div>
-                          </div>
-                          </form>
-                    </div>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
+              </div>
+            </form>
+            <div class="pl-3">
+              <div class="form-group">
+                <button (click)="btnPrimera()" mat-raised-button type="submit" class="btn btn-danger btn-round "><div class="ripple-container"></div>|< Primera </button>
+                <button [disabled]="!this.anterior" (click)="btnAnterior()" mat-raised-button type="submit" class="btn btn-success btn-round "><div class="ripple-container"></div><< Anterior </button>
+                  {{this.paginaActual}}/{{this.totalPaginas}}
+                <button [disabled]="!this.siguiente" (click)="btnSiguiente()" mat-raised-button type="submit" class="btn btn-success btn-round "><div class="ripple-container"></div>Siguiente >></button>
+                <button (click)="btnUltima()" mat-raised-button type="submit" class="btn btn-danger btn-round "><div class="ripple-container"></div>Última >|</button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
+</div>

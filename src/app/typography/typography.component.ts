@@ -23,7 +23,7 @@ export class TypographyComponent implements OnInit {
   cargarVtas(){
     (<HTMLInputElement>document.getElementById("upc")).value = "";
     this.blockUI.start("Cargando ventas...");
-    this._vtas.GetVentas().subscribe(data=>{
+    this._vtas.GetVentas().then(data=>{
       this.DataArticulos = data;
       this.Ventas = 0;
       this.items = [];
@@ -52,8 +52,13 @@ export class TypographyComponent implements OnInit {
     let Arr = info.Numcon;
     let Response  : any =[];
     this.blockUI.start("Buscando información...");
-    this._vtas.GetReferencias(Arr).subscribe(data=>{
+    this._vtas.GetReferencias(Arr).then(data=>{
       Response = data;
+      if(!Response){
+        this.blockUI.stop()
+        Swal.fire('', 'No hay datos que mostrar.', 'info')
+        return
+      }
       if(Response.pagoapp == 1){
         Response.pagoapp = "App";
       }else{
@@ -108,7 +113,7 @@ export class TypographyComponent implements OnInit {
     console.log(upc);
     if(upc !== ""){
       this.blockUI.start("Buscando venta...")
-      this._vtas.GetVentaespecifica(upc).subscribe(data=>{
+      this._vtas.GetVentaespecifica(upc).then(data=>{
         this.DataArticulos = data;
         this.Ventas = 0;
         this.items = [];

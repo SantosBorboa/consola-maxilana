@@ -8,9 +8,11 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { LoginComponent } from 'app/components/login/login.component';
+import { AuthGuard } from 'Guards/auth.guard';
 
 export const AdminLayoutRoutes: Routes = [
-   // {
+    // {
     //   path: '',
     //   children: [ {
     //     path: 'dashboard',
@@ -42,26 +44,30 @@ export const AdminLayoutRoutes: Routes = [
     //}, 
     {
         path: '',
-        children: [ {
+        children: [{
             path: 'typography',
+            canActivate: [AuthGuard],
             component: TableListComponent
         }]
     },
-     {
+    {
         path: '',
-        children: [ {
+        children: [{
             path: 'Pagos',
+            canActivate: [AuthGuard],
             component: IconsComponent
         }]
     },
     {
         path: '',
-        children: [ {
+        children: [{
             path: 'Ventas',
+            canActivate: [AuthGuard],
             component: TypographyComponent
         }]
     },
-   // { path: 'dashboard',      component: DashboardComponent },
+    { path: '', children: [{ path: 'Login', component: LoginComponent }] },
+    // { path: 'dashboard',      component: DashboardComponent },
     // { path: 'busquedaarticulos',   component: UserProfileComponent },
     // { path: 'infoclientes',     component: TableListComponent },
     // { path: 'ventas',     component: TypographyComponent },

@@ -1,36 +1,37 @@
 import { Injectable } from '@angular/core';
-import {HttpClient,HttpHeaders, HttpRequest, HttpParams} from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpRequest, HttpParams } from '@angular/common/http'
 import { map } from 'rxjs/operators';
+import { FetchService } from './fetcher.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class VentasService {
-  public header : any;
-  constructor(private http : HttpClient) {
+  baseApiUrl: string = 'https://consola.maxilana.com/api'
+  public header: any;
+  constructor(
+    private http: HttpClient,
+    private fetchService: FetchService,
+  ) {
     this.header = new HttpHeaders()
-    .set('Content-Type', 'application/json');
-   }
-
-   GetVentas()
-    {     
-       return this.http.get("https://consola.maxilana.com/api/consola/pagos/ventas" ).pipe(map(res => res));
- 
-   }
-   GetVentaespecifica(upc: any)
-   {     
-    return this.http.get("https://consola.maxilana.com/api/consola/pagos/ventas?tipo=2&upc="+upc ).pipe(map(res => res));
-
+      .set('Content-Type', 'application/json');
   }
-  GetReferencias(Referencia:any){
+
+  GetVentas() {
+    return this.fetchService.Get(this.baseApiUrl + "/consola/pagos/ventas");
+  }
+  GetVentaespecifica(upc: any) {
+    return this.fetchService.Get(this.baseApiUrl + "/consola/pagos/ventas?tipo=2&upc=" + upc);
+  }
+  GetReferencias(Referencia: any) {
     let body = {
       control: Referencia
-     }
- console.log(body);
-     
-       return this.http.post("https://consola.maxilana.com/api/consola/pagos/control", JSON.stringify(body), {
-         headers: this.header
-       }).pipe(map(res => res));
+    }
+    console.log(body);
+    return this.fetchService.Post(this.baseApiUrl + "/consola/pagos/control",body)
   }
+}
+interface test {
+  ok: string;
 }

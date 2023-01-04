@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class InicioService {
+  baseApiUrl: string = 'https://consola.maxilana.com/api'
   public header : any;
   constructor(private http : HttpClient) {
     this.header = new HttpHeaders()
@@ -15,12 +16,12 @@ export class InicioService {
 
    GetArticulos()
     {     
-       return this.http.get("http://localhost:3050/api/consola/articulos" ).pipe(map(res => res));
+       return this.http.get(this.baseApiUrl + "/consola/articulos" ).pipe(map(res => res));
  
    }
    resumenpagos()
    {     
-      return this.http.get("http://localhost:3050/api/consola/resumenpagos" ).pipe(map(res => res));
+      return this.http.get(this.baseApiUrl + "/consola/resumenpagos" ).pipe(map(res => res));
 
   }
 }
