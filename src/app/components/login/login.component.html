@@ -1,0 +1,22 @@
+<div class="main-content">
+    <div class="card raised" style="width:400px;margin-left: auto;margin-right: auto;">
+        <div class="card-header">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title ">Inicio de sesión</h4>
+            </div>
+        </div>
+        <div class="card-body">
+                <div class="form-group">
+                    <label for="usuario">Usuario:</label>
+                    <input id="usuario" (keypress)="keyPressUsuario($event)" type="text" class="form-control">
+                    <label style="font-size: small;color: red;" *ngIf="usuario == ''">**Falta poner el usuario</label>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input placeholder="Contraseña"  [value]="password" (keypress)="keyPressPassword($event)" id="password" type="password" class="form-control">
+                    <label style="font-size: small;color: red;" *ngIf="password == ''">**Falta poner el password</label>
+                </div>
+                <button (click)="formSubmit()" class="btn btn-primary" style="border-radius:20px;width:100%;">Iniciar sesión</button>
+        </div>
+    </div>
+</div>
